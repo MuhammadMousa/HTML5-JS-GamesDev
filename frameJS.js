@@ -1,6 +1,6 @@
 const canvas = document.getElementById('myCanvas');
 const context = canvas.getContext('2d');
-
+   
         context.fillStyle = "#bbb";
         context.fillRect(0, 0, canvas.width, canvas.height);
 
