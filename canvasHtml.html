@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Testing Frames</title>
+
+
+	</head>
+	<body>
+        
+		<canvas id="myCanvas" width="450" height="550"></canvas>
+
+		<script type="text/javascript">
+		const canvas = document.getElementById('myCanvas');
+        const context = canvas.getContext('2d');
+
+        context.fillStyle = "#bbb";
+        context.fillRect(0, 0, canvas.width, canvas.height);
+
+        var spriteSheet = new Image();
+        spriteSheet.src = "spritesheet.png";
+
+       // context.drawImage(spriteSheet, spriteSheet.width, spriteSheet.height);
+
+       spriteSheet.addEventListener("load", function() {
+           context.drawImage(spriteSheet, 0, 0, 190, 151,0 , 0, 190, 151);
+
+           context.drawImage(spriteSheet, 1, 201, 192, 142,0 , 201, 192, 142);
+
+         //  context.drawImage(spriteSheet, 579, 211, 161, 139,0 , 0, 161, 139);
+
+
+          // context.drawImage(spriteSheet, 579, 211, 161, 139,0 , 0, 161, 139);
+
+
+
+
+
+     });
+
+
+		</script>
+        
+	</body>
+<!-- I put here so the canvas html element will be loaded first and then i will be able to access the canvas and the context -->
+	<!-- <script src="frameJS.js"></script> -->
+
+</html>
