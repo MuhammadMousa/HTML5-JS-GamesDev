@@ -24,15 +24,42 @@
 
        // context.drawImage(spriteSheet, spriteSheet.width, spriteSheet.height);
 
-       spriteSheet.addEventListener("load", function() {
-           context.drawImage(spriteSheet, 0, 0, 190, 151,0 , 0, 190, 151);
+       function Frame(){
 
-           context.drawImage(spriteSheet, 1, 201, 192, 142,0 , 201, 192, 142);
+        this.position = {startX: 0, startY: 0, width: 0, height: 0, posX: 0, posY: 0, widthX: 0, heightY: 0}
+
+       }
+       
+       function createFrame (spriteSheet,startX, startY, width, height, posX, posY, widthX, heightY) {
+         var frame = new Frame();
+         frame.startX = 0;
+         frame.startY = 0;
+         frame.width = 190;
+         frame.height = 151;
+         frame.posX = 0;
+         frame.posY = 0;
+         frame.widthX = 190;
+         frame.heightY = 151;
+
+         return frame;
+         
+       }
+       
+
+       spriteSheet.addEventListener("load", function() {
+           context.drawImage(spriteSheet, 0, 0, 190, 151,
+                              0, 0, 190, 151);
+
+          context.drawImage(spriteSheet, 1, 201, 192, 142,0 , 201, 192, 142);
 
            context.drawImage(spriteSheet, 32, 399, 181, 102,0 , 399, 181, 102);
 
-
            context.drawImage(spriteSheet, 201, 13, 171, 138,201 , 0, 171, 138);
+
+          // var currentAnim = 0;
+
+          var frames = [];
+           frames.push(first);
            /*
            setInterval(function  () {
              
