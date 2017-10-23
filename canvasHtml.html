@@ -79,6 +79,8 @@
            setInterval(function  () {
 
              if(i < frames.length){
+
+             context.clearRect(0,0,200,150);
              context.drawImage(spriteSheet,frames[i].startX,frames[i].startY, frames[i].width, frames[i].height, 
               0, 0, frames[i].widthX, frames[i].heightY);
 
@@ -89,9 +91,9 @@
              else {
               i = 0;
              }
-             //context.clearRect(0,0,200,150);
+            
                
-           },500);
+           },100);
            
            /*
            function SayHello () {
