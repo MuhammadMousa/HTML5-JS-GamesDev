@@ -4,6 +4,12 @@ const context = canvas.getContext('2d');
        var spriteSheet = new Image();
        spriteSheet.src = "spritesheet.png";
 
+       function Bird(){
+        this.framesSequence = [];
+
+       }
+
+
        function Frame(){ // a frames constructor
 
         this.position = {startX: 0, startY: 0, width: 0, height: 0, posX: 0, posY: 0, widthX: 0, heightY: 0}
@@ -12,14 +18,15 @@ const context = canvas.getContext('2d');
        
        function createFrame (spriteSheet,startX, startY, width, height, posX, posY, widthX, heightY) {
          var frame = new Frame();
-         frame.startX = startX;
-         frame.startY = startY;
-         frame.width = width;
-         frame.height = height;
-         frame.posX = posX;
-         frame.posY = posY;
-         frame.widthX = widthX;
-         frame.heightY = heightY;
+         
+         frame.position.startX = startX;
+         frame.position.startY = startY;
+         frame.position.width = width;
+         frame.position.height = height;
+         frame.position.posX = posX;
+         frame.position.posY = posY;
+         frame.position.widthX = widthX;
+         frame.position.heightY = heightY;
 
          return frame;
          
@@ -29,13 +36,36 @@ const context = canvas.getContext('2d');
        var secondFrame = createFrame(spriteSheet, 1, 201, 192, 142, 0, 201, 192, 142);
        var thirdFrame = createFrame(spriteSheet, 32, 399, 181, 102,0 , 399, 181, 102);
        var fourthFrame = createFrame(spriteSheet, 201, 13, 171, 138,201 , 0, 171, 138);
+       var fifthFrame = createFrame(spriteSheet, 200,200, 171,166,0,0,171,166);
+       var sixthFrame = createFrame(spriteSheet, 209, 371, 161,131,0,0,161,131);
+       var seventhFrame = createFrame(spriteSheet, 379, 11, 171,151,0,0,171,151);
+       var eighthFrame = createFrame(spriteSheet, 390, 231, 165,109,0,0,165,109);
+       var ninthFrame = createFrame(spriteSheet, 367,367,184,124,0,0,184,124);
+       var tinthFrame = createFrame(spriteSheet, 550,0,178,145,0,0,178,145);
+       var eleventhFrame = createFrame(spriteSheet, 552,211,173,120,0,0,173,120);
+       var twelvethFrame = createFrame(spriteSheet, 550,360,179,138,0,0,179,138);
+       var thiteenthFrame = createFrame(spriteSheet, 726,0,184,143,0,0,184,143);
+       var fourteenthFrame = createFrame(spriteSheet, 750, 211,160,128,0,0,160,128);
 
        var frames = [];
           frames.push(firstFrame);
           frames.push(secondFrame);
           frames.push(thirdFrame );
           frames.push(fourthFrame);
-       
+          frames.push(fifthFrame);
+          frames.push(sixthFrame);
+          frames.push(seventhFrame);
+          frames.push(eighthFrame);
+          frames.push(ninthFrame);
+          frames.push(tinthFrame);
+          frames.push(eleventhFrame);
+          frames.push(twelvethFrame);
+          frames.push(thiteenthFrame);
+          frames.push(fourteenthFrame);
+
+          var bird = new Bird();
+          bird.framesSequence = frames;
+          console.log(bird.framesSequence);
 
        spriteSheet.addEventListener("load", function() {
         /*
@@ -60,21 +90,18 @@ const context = canvas.getContext('2d');
 
              if(i < frames.length){
 
-             context.clearRect(0,0,195,160); // clearing the canvas for a complete frame (the coordinates -> "Trial and error")
+             context.clearRect(0,0,canvas.width,canvas.height); // clearing the canvas for a complete frame (the coordinates -> "Trial and error")
 
              context.drawImage(spriteSheet,frames[i].startX,frames[i].startY, frames[i].width, frames[i].height, 
-              0, 0, frames[i].widthX, frames[i].heightY);
-
-
+              canvas.width/2, canvas.height/2, frames[i].widthX, frames[i].heightY);
                 i++;
-             
              }
              else {
               i = 0;
              }
             
                
-           },100);
+           },1000);
 
 
      });
