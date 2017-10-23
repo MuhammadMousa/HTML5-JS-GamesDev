@@ -3,9 +3,10 @@ const context = canvas.getContext('2d');
 
        var spriteSheet = new Image();
        spriteSheet.src = "spritesheet.png";
-
+       
+       // the first character in the game
        function Bird(){
-        this.framesSequence = [];
+        this.framesSequence = new Array();
 
        }
 
@@ -18,7 +19,7 @@ const context = canvas.getContext('2d');
        
        function createFrame (spriteSheet,startX, startY, width, height, posX, posY, widthX, heightY) {
          var frame = new Frame();
-         
+
          frame.position.startX = startX;
          frame.position.startY = startY;
          frame.position.width = width;
@@ -68,32 +69,17 @@ const context = canvas.getContext('2d');
           console.log(bird.framesSequence);
 
        spriteSheet.addEventListener("load", function() {
-        /*
-           context.drawImage(spriteSheet, firstFrame.startX, firstFrame.startY, firstFrame.width, firstFrame.height,
-                              firstFrame.posX, firstFrame.posY, firstFrame.widthX, firstFrame.heightY);
-
-          context.drawImage(spriteSheet, secondFrame.startX, secondFrame.startY, secondFrame.width, secondFrame.height,
-                              secondFrame.posX, secondFrame.posY, secondFrame.widthX, secondFrame.heightY);
-
-           context.drawImage(spriteSheet, thirdFrame.startX, thirdFrame.startY, thirdFrame.width, thirdFrame.height,
-                              thirdFrame.posX, thirdFrame.posY, thirdFrame.widthX, thirdFrame.heightY);
-
-           context.drawImage(spriteSheet, fourthFrame.startX, fourthFrame.startY, fourthFrame.width, fourthFrame.height,
-                              fourthFrame.posX, fourthFrame.posY, fourthFrame.widthX, fourthFrame.heightY);
-
-          var currentAnim = 0;
-           */
-        
-          
-          var i = 0;
+           var i = 0; // determine the current frame
            setInterval(function  () {
 
-             if(i < frames.length){
+             if(i < bird.framesSequence.length){
 
              context.clearRect(0,0,canvas.width,canvas.height); // clearing the canvas for a complete frame (the coordinates -> "Trial and error")
 
-             context.drawImage(spriteSheet,frames[i].startX,frames[i].startY, frames[i].width, frames[i].height, 
-              canvas.width/2, canvas.height/2, frames[i].widthX, frames[i].heightY);
+             context.drawImage(spriteSheet,bird.framesSequence[i].position.startX,bird.framesSequence[i].position.startY, 
+              bird.framesSequence[i].position.width, bird.framesSequence[i].position.height, 
+              0, 0, bird.framesSequence[i].position.widthX, bird.framesSequence[i].position.heightY);
+
                 i++;
              }
              else {
@@ -101,7 +87,7 @@ const context = canvas.getContext('2d');
              }
             
                
-           },1000);
+           },50);
 
 
      });
