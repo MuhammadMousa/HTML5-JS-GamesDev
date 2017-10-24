@@ -9,6 +9,12 @@ const context = canvas.getContext('2d');
 
        var explosionSheet = new Image();
        explosionSheet.src = "explosion.png";
+
+
+       var explosionEffect = new Audio();
+       explosionEffect.src = "Bomb.mp3";
+       explosionEffect.volume = 0.4;
+
        
        // flying bird character
        function Bird(){
@@ -197,7 +203,7 @@ const context = canvas.getContext('2d');
              var i = 0; // determine the current frame
          setInterval(function  () {
          
-
+             
              if(i < explosion.explosionFramesSequence.length){
 
              context.clearRect(0,0,canvas.width,canvas.height); // clearing the canvas for a complete frame (the coordinates -> "Trial and error")
@@ -211,6 +217,7 @@ const context = canvas.getContext('2d');
                               explosion.explosionFramesSequence[i].position.widthX,  // stretch or reduce the width and the height
                               explosion.explosionFramesSequence[i].position.heightY
                               );
+             explosionEffect.play();
 
                 i++;
              }
@@ -219,7 +226,7 @@ const context = canvas.getContext('2d');
              }
             
                
-           },25);
+           },100);
            
 
 
