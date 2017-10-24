@@ -2,12 +2,22 @@ const canvas = document.getElementById('myCanvas');
 const context = canvas.getContext('2d');
 
        var spriteSheet = new Image();
-       spriteSheet.src = "spritesheet.png";
+       spriteSheet.src = "flyingbird.png";
        
-       // the first character in the game
+       // flying bird character
        function Bird(){
         this.framesSequence = new Array();
 
+       }
+
+       // running cat character
+       function Cat(){
+        this.framesSequence = new Array();
+       }
+
+       // explosion effect
+       function Expolosion (argument) {
+         this.framesSequence = new Array();
        }
 
 
