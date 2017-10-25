@@ -15,6 +15,10 @@ const context = canvas.getContext('2d');
        explosionEffect.src = "Bomb.mp3";
        explosionEffect.volume = 0.2;
 
+
+    
+
+
        
        // flying bird character
        function Bird(){
@@ -54,6 +58,7 @@ const context = canvas.getContext('2d');
          return frame;
          
        }
+
 
        var firstFrame = createFrame(flyingBird, 0,0,190,151,0,0,190,151);
        var secondFrame = createFrame(flyingBird, 1, 201, 192, 142, 0, 201, 192, 142);
@@ -163,7 +168,7 @@ const context = canvas.getContext('2d');
           explosion.explosionFramesSequence = explosionFrames;
           
 
-
+/*
       runningCat.addEventListener("load", function () {
 
             var posX = 0;
@@ -208,7 +213,7 @@ const context = canvas.getContext('2d');
             
       });
 
-
+*/
 
       /*
       explosionSheet.addEventListener("load", function  () {
@@ -272,3 +277,23 @@ const context = canvas.getContext('2d');
 
      });
 */
+
+
+
+/**
+ Those are some basic methods ... to be implemented ...
+**/
+function clear (argument) {
+  // body...
+}
+function update (argument) {
+  // body...
+}
+function draw (argument) {
+  // body...
+}
+function Animate (argument) {
+  update();
+  clear();
+  draw();
+}
