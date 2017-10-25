@@ -13,7 +13,7 @@ const context = canvas.getContext('2d');
 
        var explosionEffect = new Audio();
        explosionEffect.src = "Bomb.mp3";
-       explosionEffect.volume = 0.4;
+       explosionEffect.volume = 0.2;
 
        
        // flying bird character
@@ -89,7 +89,7 @@ const context = canvas.getContext('2d');
 
           var bird = new Bird();
           bird.birdFramesSequence = birdFrames;
-          console.log(bird.birdFramesSequence);
+
 
 
        var catFirstFrame = createFrame(runningCat, 0,0,510,271,0,0,510,271);
@@ -128,7 +128,7 @@ const context = canvas.getContext('2d');
        var explosionSeventhFrame = createFrame(explosionSheet, 100, 90, 95,100,0,0,95,100);
        var explosionEighthFrame = createFrame(explosionSheet, 195, 90, 95,100,0,0,95,100);
        var explosionNinthFrame = createFrame(explosionSheet, 290,90,95,100,0,0,95,100);
-       var explosionTenthFrame = createFrame(explosionSheet, 385,90,90,100,0,0,95,100);
+       var explosionTenthFrame = createFrame(explosionSheet, 385,90,90,100,0,0,90,100);
        var explosionEleventhFrame = createFrame(explosionSheet, 0,190,100,105,0,0,100,105);
        var explosionTwelvethFrame = createFrame(explosionSheet, 100,190,95,105,0,0,95,105);
        var explosionThiteenthFrame = createFrame(explosionSheet, 195,190,100,105,0,0,100,105);
@@ -163,10 +163,11 @@ const context = canvas.getContext('2d');
           explosion.explosionFramesSequence = explosionFrames;
           
 
-/*
+
       runningCat.addEventListener("load", function () {
 
-            console.log(cat.catFramesSequence);
+            var posX = 0;
+            var posY = 0;
             var i = 0; // determine the current frame
             setInterval(function() {
 
@@ -179,27 +180,38 @@ const context = canvas.getContext('2d');
                               cat.catFramesSequence[i].position.startY, 
                               cat.catFramesSequence[i].position.width,   // the width and the heigh of the frame
                               cat.catFramesSequence[i].position.height, 
-                              0, 0,                                                  // position of the frame
+                              posX, posY,                                                  // position of the frame
                               cat.catFramesSequence[i].position.widthX,  // stretch or reduce the width and the height
                               cat.catFramesSequence[i].position.heightY
                               );
 
                 i++;
+                if(posX < canvas.width - cat.catFramesSequence[i].position.widthX) { // to make the cat run from (0,0) once it hits the width
+                  posX += 10;
+                }
+                else {
+                  posX = 0;
+                }
+                
+
              }
              else {
+              
               i = 0;
              }
             
                
-           },50);
+           },60);
 
             
       });
 
-      */
+
+
+      /*
       explosionSheet.addEventListener("load", function  () {
 
-         console.log(explosion.explosionFramesSequence);
+
              var i = 0; // determine the current frame
          setInterval(function  () {
          
@@ -217,7 +229,7 @@ const context = canvas.getContext('2d');
                               explosion.explosionFramesSequence[i].position.widthX,  // stretch or reduce the width and the height
                               explosion.explosionFramesSequence[i].position.heightY
                               );
-             explosionEffect.play();
+            // explosionEffect.play();
 
                 i++;
              }
@@ -231,7 +243,7 @@ const context = canvas.getContext('2d');
 
 
       });
-
+*/
 
 /*
        flyingBird.addEventListener("load", function() {
