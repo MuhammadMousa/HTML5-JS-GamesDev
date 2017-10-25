@@ -186,7 +186,9 @@ const context = canvas.getContext('2d');
                               );
 
                 i++;
-                if(posX < canvas.width - cat.catFramesSequence[i].position.widthX) { // to make the cat run from (0,0) once it hits the width
+                
+                if(posX < (canvas.width - cat.catFramesSequence[i].position.widthX)) { // to make the cat run from (0,0) once it hits the width
+                 
                   posX += 10;
                 }
                 else {
