@@ -215,7 +215,7 @@ const context = canvas.getContext('2d');
 
 */
 
-      /*
+      
       explosionSheet.addEventListener("load", function  () {
 
 
@@ -236,7 +236,7 @@ const context = canvas.getContext('2d');
                               explosion.explosionFramesSequence[i].position.widthX,  // stretch or reduce the width and the height
                               explosion.explosionFramesSequence[i].position.heightY
                               );
-            // explosionEffect.play();
+            explosionEffect.play();
 
                 i++;
              }
@@ -250,7 +250,7 @@ const context = canvas.getContext('2d');
 
 
       });
-*/
+
 
 /*
        flyingBird.addEventListener("load", function() {
