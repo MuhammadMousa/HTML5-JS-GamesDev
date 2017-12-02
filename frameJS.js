@@ -168,7 +168,7 @@ const context = canvas.getContext('2d');
           explosion.explosionFramesSequence = explosionFrames;
           
 
-/*
+
       runningCat.addEventListener("load", function () {
 
             var posX = 0;
@@ -213,8 +213,8 @@ const context = canvas.getContext('2d');
             
       });
 
-*/
 
+/*
       
       explosionSheet.addEventListener("load", function  () {
 
@@ -251,7 +251,7 @@ const context = canvas.getContext('2d');
 
       });
 
-
+*/
 /*
        flyingBird.addEventListener("load", function() {
            var i = 0; // determine the current frame
@@ -293,7 +293,7 @@ function draw (argument) {
   // body...
 }
 function Animate (argument) {
-  update();
   clear();
+  update();
   draw();
 }
