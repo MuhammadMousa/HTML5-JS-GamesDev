@@ -176,6 +176,56 @@ const context = canvas.getContext('2d');
 
           var explosion = new Expolosion();
           explosion.explosionFramesSequence = explosionFrames;
+
+
+
+
+          var runBoyFirstFrame = createFrame(10,10,270,255,0,0,270,255);
+          var runBoySecondFrame = createFrame(290,10,247,255,0,0,247,255);
+          var runBoyThirdFrame = createFrame(532,10,223,255,0,0,223,255);
+          var runBoyFourthFrame = createFrame(770,10,230,255,0,0,230,255);
+          var runBoyFifthFrame = createFrame(1040,10,240,255,0,0,240,255);
+
+          var BoyFrames = new Array();
+
+          BoyFrames.push(runBoyFirstFrame);
+          BoyFrames.push(runBoySecondFrame);
+          BoyFrames.push(runBoyThirdFrame);
+          BoyFrames.push(runBoyFourthFrame);
+          BoyFrames.push(runBoyFifthFrame);
+          
+        
+          var boy  = new Boy();
+          boy.BoyFramesSequence = BoyFrames;
+         
+          
+      runningBoy.addEventListener("load", function() {
+           var i = 0; // determine the current frame
+           setInterval(function  () {
+
+             if(i < boy.BoyFramesSequence.length){
+               
+             context.clearRect(0,0,canvas.width,canvas.height); // clearing the canvas for a complete frame (the coordinates -> "Trial and error")
+
+             context.drawImage(runningBoy,
+              boy.BoyFramesSequence[i].position.startX,
+              boy.BoyFramesSequence[i].position.startY, 
+              boy.BoyFramesSequence[i].position.width, boy.BoyFramesSequence[i].position.height, 
+              0, 0, boy.BoyFramesSequence[i].position.widthX, boy.BoyFramesSequence[i].position.heightY);
+
+                i++;
+             }
+             else {
+              i = 0;
+             }
+            
+               
+           },500);
+
+
+     });
+
+
           
 
 /*
@@ -297,15 +347,16 @@ const context = canvas.getContext('2d');
 **/
 function clear (argument) {
   // body...
+  context.clearRect(0,0,canvas.width,canvas.height);
 }
 function update (argument) {
   // body...
 }
 function draw (argument) {
-  // body...
 }
 function Animate (argument) {
   clear();
   update();
   draw();
 }
+
