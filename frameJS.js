@@ -10,13 +10,17 @@ const context = canvas.getContext('2d');
        var explosionSheet = new Image();
        explosionSheet.src = "explosion.png";
 
+       var runningBoy = new Image();
+       runningBoy.src = "runningBoy.png";
+
 
        var explosionEffect = new Audio();
        explosionEffect.src = "Bomb.mp3";
        explosionEffect.volume = 0.2;
 
 
-    
+       
+
 
 
        
@@ -34,6 +38,12 @@ const context = canvas.getContext('2d');
        // explosion effect
        function Expolosion () {
          this.explosionFramesSequence = new Array();
+       }
+
+       // running boy
+       function Boy (){
+        this.BoyFramesSequence = new Array();
+
        }
 
 
@@ -168,7 +178,7 @@ const context = canvas.getContext('2d');
           explosion.explosionFramesSequence = explosionFrames;
           
 
-
+/*
       runningCat.addEventListener("load", function () {
 
             var posX = 0;
@@ -212,6 +222,8 @@ const context = canvas.getContext('2d');
 
             
       });
+
+*/
 
 
 /*
