@@ -19,11 +19,10 @@ const context = canvas.getContext('2d');
        explosionEffect.volume = 0.2;
 
 
-       
 
 
 
-       
+
        // flying bird character
        function Bird(){
         this.birdFramesSequence = new Array();
@@ -52,7 +51,7 @@ const context = canvas.getContext('2d');
         this.position = {startX: 0, startY: 0, width: 0, height: 0, posX: 0, posY: 0, widthX: 0, heightY: 0}
 
        }
-       
+
        function createFrame (flyingBird,startX, startY, width, height, posX, posY, widthX, heightY) {
          var frame = new Frame();
 
@@ -66,7 +65,7 @@ const context = canvas.getContext('2d');
          frame.position.heightY = heightY;
 
          return frame;
-         
+
        }
 
 
@@ -115,7 +114,7 @@ const context = canvas.getContext('2d');
        var catSixthFrame = createFrame(runningCat, 550, 580, 430,205,0,0,430,205);
        var catSeventhFrame = createFrame(runningCat, 0, 840, 460,180,0,0,460,180);
        var catEighthFrame = createFrame(runningCat, 500, 820, 500,204,0,0,500,204);
-       
+
        var catFrames = new Array();
 
        catFrames.push(catFirstFrame);
@@ -127,11 +126,11 @@ const context = canvas.getContext('2d');
        catFrames.push(catSeventhFrame);
        catFrames.push(catEighthFrame);
 
-      
+
 
           var cat = new Cat();
           cat.catFramesSequence = catFrames;
-          
+
 
 
        var explosionFirstFrame = createFrame(explosionSheet, 0,0,100,90,0,0,100,90);
@@ -193,24 +192,24 @@ const context = canvas.getContext('2d');
           BoyFrames.push(runBoyThirdFrame);
           BoyFrames.push(runBoyFourthFrame);
           BoyFrames.push(runBoyFifthFrame);
-          
-        
+
+
           var boy  = new Boy();
           boy.BoyFramesSequence = BoyFrames;
-         
-          
+
+
       runningBoy.addEventListener("load", function() {
            var i = 0; // determine the current frame
            setInterval(function  () {
 
              if(i < boy.BoyFramesSequence.length){
-               
+
              context.clearRect(0,0,canvas.width,canvas.height); // clearing the canvas for a complete frame (the coordinates -> "Trial and error")
 
              context.drawImage(runningBoy,
               boy.BoyFramesSequence[i].position.startX,
-              boy.BoyFramesSequence[i].position.startY, 
-              boy.BoyFramesSequence[i].position.width, boy.BoyFramesSequence[i].position.height, 
+              boy.BoyFramesSequence[i].position.startY,
+              boy.BoyFramesSequence[i].position.width, boy.BoyFramesSequence[i].position.height,
               0, 0, boy.BoyFramesSequence[i].position.widthX, boy.BoyFramesSequence[i].position.heightY);
 
                 i++;
@@ -218,15 +217,15 @@ const context = canvas.getContext('2d');
              else {
               i = 0;
              }
-            
-               
+
+
            },500);
 
 
      });
 
 
-          
+
 
 /*
       runningCat.addEventListener("load", function () {
@@ -242,58 +241,58 @@ const context = canvas.getContext('2d');
 
              context.drawImage(runningCat,
                               cat.catFramesSequence[i].position.startX,  // where to start drawing
-                              cat.catFramesSequence[i].position.startY, 
+                              cat.catFramesSequence[i].position.startY,
                               cat.catFramesSequence[i].position.width,   // the width and the heigh of the frame
-                              cat.catFramesSequence[i].position.height, 
+                              cat.catFramesSequence[i].position.height,
                               posX, posY,                                                  // position of the frame
                               cat.catFramesSequence[i].position.widthX,  // stretch or reduce the width and the height
                               cat.catFramesSequence[i].position.heightY
                               );
 
                 i++;
-                
+
                 if(posX < (canvas.width - cat.catFramesSequence[i].position.widthX)) { // to make the cat run from (0,0) once it hits the width
-                 
+
                   posX += 10;
                 }
                 else {
                   posX = 0;
                 }
-                
+
 
              }
              else {
-              
+
               i = 0;
              }
-            
-               
+
+
            },60);
 
-            
+
       });
 
 */
 
 
 /*
-      
+
       explosionSheet.addEventListener("load", function  () {
 
 
              var i = 0; // determine the current frame
          setInterval(function  () {
-         
-             
+
+
              if(i < explosion.explosionFramesSequence.length){
 
              context.clearRect(0,0,canvas.width,canvas.height); // clearing the canvas for a complete frame (the coordinates -> "Trial and error")
 
              context.drawImage(explosionSheet,
                               explosion.explosionFramesSequence[i].position.startX,  // where to start drawing
-                              explosion.explosionFramesSequence[i].position.startY, 
+                              explosion.explosionFramesSequence[i].position.startY,
                               explosion.explosionFramesSequence[i].position.width,   // the width and the heigh of the frame
-                              explosion.explosionFramesSequence[i].position.height, 
+                              explosion.explosionFramesSequence[i].position.height,
                               0, 0,                                                  // position of the frame
                               explosion.explosionFramesSequence[i].position.widthX,  // stretch or reduce the width and the height
                               explosion.explosionFramesSequence[i].position.heightY
@@ -305,10 +304,10 @@ const context = canvas.getContext('2d');
              else {
               i = 0;
              }
-            
-               
+
+
            },100);
-           
+
 
 
       });
@@ -323,8 +322,8 @@ const context = canvas.getContext('2d');
 
              context.clearRect(0,0,canvas.width,canvas.height); // clearing the canvas for a complete frame (the coordinates -> "Trial and error")
 
-             context.drawImage(flyingBird,bird.birdFramesSequence[i].position.startX,bird.birdFramesSequence[i].position.startY, 
-              bird.birdFramesSequence[i].position.width, bird.birdFramesSequence[i].position.height, 
+             context.drawImage(flyingBird,bird.birdFramesSequence[i].position.startX,bird.birdFramesSequence[i].position.startY,
+              bird.birdFramesSequence[i].position.width, bird.birdFramesSequence[i].position.height,
               0, 0, bird.birdFramesSequence[i].position.widthX, bird.birdFramesSequence[i].position.heightY);
 
                 i++;
@@ -332,8 +331,8 @@ const context = canvas.getContext('2d');
              else {
               i = 0;
              }
-            
-               
+
+
            },500);
 
 
@@ -359,4 +358,3 @@ function Animate (argument) {
   update();
   draw();
 }
-
