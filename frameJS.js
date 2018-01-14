@@ -197,7 +197,7 @@ const context = canvas.getContext('2d');
           var boy  = new Boy();
           boy.BoyFramesSequence = BoyFrames;
 
-
+/*
       runningBoy.addEventListener("load", function() {
            var i = 0; // determine the current frame
            setInterval(function  () {
@@ -225,9 +225,9 @@ const context = canvas.getContext('2d');
      });
 
 
+*/
 
 
-/*
       runningCat.addEventListener("load", function () {
 
             var posX = 0;
@@ -272,7 +272,7 @@ const context = canvas.getContext('2d');
 
       });
 
-*/
+
 
 
 /*
