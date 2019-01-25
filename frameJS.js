@@ -1,6 +1,7 @@
+
 const canvas = document.getElementById('myCanvas');
 const context = canvas.getContext('2d');
-
+/*
        var flyingBird = new Image();
        flyingBird.src = "flyingbird.png";
 
@@ -12,16 +13,22 @@ const context = canvas.getContext('2d');
 
        var runningBoy = new Image();
        runningBoy.src = "runningBoy.png";
+*/
+       var SpinnerImg = new Image();
+       SpinnerImg.src = "Spinner.jpg";
 
+       var RunnerImg = new Image();
+       RunnerImg.src = "Running.png";
 
+/*
        var explosionEffect = new Audio();
        explosionEffect.src = "Bomb.mp3";
        explosionEffect.volume = 0.2;
 
+*/
 
 
-
-
+/*
 
        // flying bird character
        function Bird(){
@@ -43,6 +50,14 @@ const context = canvas.getContext('2d');
        function Boy (){
         this.BoyFramesSequence = new Array();
 
+       }
+*/
+       function Spinner() {
+       	this.SpinnerFramesSequence = new Array();
+       }
+
+       function Runner() {
+       	this.RunnerFrameSequence = new Array();
        }
 
 
@@ -67,6 +82,124 @@ const context = canvas.getContext('2d');
          return frame;
 
        }
+
+
+
+       var firstFrame_Spinner = createFrame(Spinner, 60,0,280,230,0,0,280,230);
+       var secondFrame_Spinner = createFrame(Spinner, 290, 0, 490, 230, 0, 0, 490, 230);
+       var thirdFrame_Spinner = createFrame(Spinner, 510, 0, 710, 230,0 , 0, 710, 230);
+       var fourthFrame_Spinner = createFrame(Spinner, 710, 0, 930, 230,0 , 0, 930, 230);
+       var fifthFrame_Spinner = createFrame(Spinner, 60,280, 280,470,0,0, 280,470);
+       var sixthFrame_Spinner = createFrame(Spinner, 280, 280, 480,470,0,0, 480,470);
+       var seventhFrame_Spinner = createFrame(Spinner, 500, 280, 700,470,0,0, 700,470);
+
+       var spinner_Frames = new Array();
+       spinner_Frames.push(firstFrame_Spinner);
+       spinner_Frames.push(secondFrame_Spinner);
+       spinner_Frames.push(thirdFrame_Spinner);
+       spinner_Frames.push(fourthFrame_Spinner);
+       spinner_Frames.push(fifthFrame_Spinner);
+       spinner_Frames.push(sixthFrame_Spinner);
+       spinner_Frames.push(seventhFrame_Spinner);
+
+
+       var spinner = new Spinner();
+       spinner.SpinnerFramesSequence = spinner_Frames;
+
+/*
+
+       	SpinnerImg.addEventListener("load", function(){
+       		var i = 0; // determine the current frame
+           setInterval(function  () {
+           	console.log("Hi");
+             if(i < spinner.SpinnerFramesSequence.length){
+             context.clearRect(0,0,canvas.width,canvas.height); // clearing the canvas for a complete frame (the coordinates -> "Trial and error")
+             context.drawImage(SpinnerImg,
+              spinner.SpinnerFramesSequence[i].position.startX,
+              spinner.SpinnerFramesSequence[i].position.startY,
+              spinner.SpinnerFramesSequence[i].position.width, spinner.SpinnerFramesSequence[i].position.height,
+              0, 0, spinner.SpinnerFramesSequence[i].position.widthX, spinner.SpinnerFramesSequence[i].position.heightY);
+                i++;
+             }
+             else {
+              i = 0;
+             }
+           },500);
+
+       		});
+
+*/
+
+       	/********************************************************************************************/
+       var firstFrame_Runner = createFrame(RunnerImg,   0, 0,      150, 220,  0, 0,   150, 220);
+       var secondFrame_Runner = createFrame(RunnerImg,  150, 0,    170, 220,  0, 0,   170, 220);
+       var thirdFrame_Runner = createFrame(RunnerImg,   320, 0,    180, 220,  0, 0,   180, 220);
+       var fourthFrame_Runner = createFrame(RunnerImg,  500, 0,    180, 220,  0, 0,   180, 220);
+       var fifthFrame_Runner = createFrame(RunnerImg,   680, 0,    160, 220,  0, 0,   160, 220);
+
+       var sixthFrame_Runner = createFrame(RunnerImg,   0, 220,        150, 430,  0, 0,   150, 430);
+       var seventhFrame_Runner = createFrame(RunnerImg, 150, 220,      170, 430,  0, 0,   170, 430);
+       var eighthFrame_Runner = createFrame(RunnerImg,  320, 220,      180, 430,  0, 0,   180, 430);
+       var ninthFrame_Runner = createFrame(RunnerImg,   500, 220,      180, 430,  0, 0,   180, 430);
+       var tenthFrame_Runner = createFrame(RunnerImg,   680, 220,      160, 430,  0, 0,   160, 430);
+
+       var RunnerFrames = new Array();
+       RunnerFrames.push(firstFrame_Runner);
+       RunnerFrames.push(secondFrame_Runner);
+       RunnerFrames.push(thirdFrame_Runner);
+       RunnerFrames.push(fourthFrame_Runner);
+       RunnerFrames.push(fifthFrame_Runner);
+       RunnerFrames.push(sixthFrame_Runner);
+       RunnerFrames.push(seventhFrame_Runner);
+       RunnerFrames.push(eighthFrame_Runner);
+       RunnerFrames.push(ninthFrame_Runner);
+       RunnerFrames.push(tenthFrame_Runner);
+
+       var runner = new Runner();
+       runner.RunnerFrameSequence = RunnerFrames;
+
+       RunnerImg.addEventListener("load", function(){
+       		var i = 0; // determine the current frame
+           setInterval(function  () {
+             
+             if(i < runner.RunnerFrameSequence.length){
+             context.clearRect(0,0,canvas.width,canvas.height); // clearing the canvas for a complete frame (the coordinates -> "Trial and error")
+             context.drawImage(
+              RunnerImg,
+              runner.RunnerFrameSequence[i].position.startX,
+              runner.RunnerFrameSequence[i].position.startY,
+              runner.RunnerFrameSequence[i].position.width, 
+              runner.RunnerFrameSequence[i].position.height,
+              545, 200, 
+              runner.RunnerFrameSequence[i].position.widthX, 
+              runner.RunnerFrameSequence[i].position.heightY
+              );
+                i++;
+             }
+             else {
+              i = 0;
+             }
+           },60);
+
+       		});
+
+
+
+
+
+
+
+       	/********************************************************************************************/
+
+
+
+
+
+
+/*
+
+
+
 
 
        var firstFrame = createFrame(flyingBird, 0,0,190,151,0,0,190,151);
@@ -197,48 +330,35 @@ const context = canvas.getContext('2d');
           var boy  = new Boy();
           boy.BoyFramesSequence = BoyFrames;
 
+
 /*
       runningBoy.addEventListener("load", function() {
            var i = 0; // determine the current frame
            setInterval(function  () {
-
              if(i < boy.BoyFramesSequence.length){
-
              context.clearRect(0,0,canvas.width,canvas.height); // clearing the canvas for a complete frame (the coordinates -> "Trial and error")
-
              context.drawImage(runningBoy,
               boy.BoyFramesSequence[i].position.startX,
               boy.BoyFramesSequence[i].position.startY,
               boy.BoyFramesSequence[i].position.width, boy.BoyFramesSequence[i].position.height,
               0, 0, boy.BoyFramesSequence[i].position.widthX, boy.BoyFramesSequence[i].position.heightY);
-
                 i++;
              }
              else {
               i = 0;
              }
-
-
            },500);
-
-
      });
-
-
 */
 
 /*
       runningCat.addEventListener("load", function () {
-
             var posX = 0;
             var posY = 0;
             var i = 0; // determine the current frame
             setInterval(function() {
-
              if(i < cat.catFramesSequence.length){
-
              context.clearRect(0,0,canvas.width,canvas.height); // clearing the canvas for a complete frame (the coordinates -> "Trial and error")
-
              context.drawImage(runningCat,
                               cat.catFramesSequence[i].position.startX,  // where to start drawing
                               cat.catFramesSequence[i].position.startY,
@@ -248,34 +368,23 @@ const context = canvas.getContext('2d');
                               cat.catFramesSequence[i].position.widthX,  // stretch or reduce the width and the height
                               cat.catFramesSequence[i].position.heightY
                               );
-
                 i++;
-
                 if(posX < (canvas.width - cat.catFramesSequence[i].position.widthX)) { // to make the cat run from (0,0) once it hits the width
-
                   posX += 10;
                 }
                 else {
                   posX = 0;
                 }
-
-
              }
              else {
-
               i = 0;
              }
-
-
            },60);
-
-
       });
-
 */
 
 
-
+/*
 
       explosionSheet.addEventListener("load", function  () {
 
@@ -312,29 +421,23 @@ const context = canvas.getContext('2d');
 
       });
 
+
+*/
 /*
        flyingBird.addEventListener("load", function() {
            var i = 0; // determine the current frame
            setInterval(function  () {
-
              if(i < bird.birdFramesSequence.length){
-
              context.clearRect(0,0,canvas.width,canvas.height); // clearing the canvas for a complete frame (the coordinates -> "Trial and error")
-
              context.drawImage(flyingBird,bird.birdFramesSequence[i].position.startX,bird.birdFramesSequence[i].position.startY,
               bird.birdFramesSequence[i].position.width, bird.birdFramesSequence[i].position.height,
               0, 0, bird.birdFramesSequence[i].position.widthX, bird.birdFramesSequence[i].position.heightY);
-
                 i++;
              }
              else {
               i = 0;
              }
-
-
            },500);
-
-
      });
 */
 
@@ -343,6 +446,7 @@ const context = canvas.getContext('2d');
 /**
  Those are some basic methods ... to be implemented ...
 **/
+/*
 function clear (argument) {
   // body...
   context.clearRect(0,0,canvas.width,canvas.height);
@@ -356,4 +460,5 @@ function Animate (argument) {
   clear();
   update();
   draw();
-}
+}*/
+
